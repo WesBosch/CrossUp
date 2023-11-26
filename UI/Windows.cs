@@ -45,6 +45,7 @@ internal sealed class SettingsWindow : Window
         if (!ImGui.BeginTabBar("Nav")) return;
 
         LookAndFeel.DrawTab();
+        if (Profile.ConfigureSlots) { SlotConfig.DrawTab(); }
         SeparateEx.DrawTab();
         SetSwitching.DrawTab();
         HudOptions.DrawTab();

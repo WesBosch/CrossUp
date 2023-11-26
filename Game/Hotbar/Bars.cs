@@ -2,6 +2,8 @@
 using System.Numerics;
 using CrossUp.Utility;
 using FFXIVClientStructs.FFXIV.Client.UI;
+using FFXIVClientStructs.FFXIV.Component.GUI;
+using Microsoft.VisualBasic;
 using static CrossUp.CrossUp;
 using static CrossUp.Game.Hotbar.Actions;
 using static CrossUp.Utility.Service;

@@ -37,6 +37,7 @@ internal class LookAndFeel
                     Rows.TriggerText();
                     Rows.UnassignedSlots();
                     Rows.CombatFade();
+                    Rows.CustomOffsets();
 
                     ImGui.EndTable();
                 }
@@ -249,6 +250,25 @@ internal class LookAndFeel
 
             ImGui.TableNextColumn();
             if (ImGui.Checkbox("##HideUnassigned", ref hide)) InternalCmd.EmptySlots(!hide);
+        }
+
+        public static void CustomOffsets()
+        {
+            var configureSlots = Profile.ConfigureSlots;
+            ImGui.TableNextRow();
+            ImGui.TableNextColumn();
+            ImGui.TextColored(Helpers.HighlightColor, Strings.SlotConfig.Enable);
+            ImGui.TableNextColumn();
+            if (ImGui.Checkbox("##ConfigureSlots", ref configureSlots)) InternalCmd.ConfigureSlots(configureSlots);
+            if (ImGui.IsItemHovered()) { ImGui.SetTooltip("This feature is experimental, hotbar icons won't be clickable if moved too far. Controller input still works."); }
+
+
+            var psConfig = Profile.PSConfig;
+            ImGui.TableNextRow();
+            ImGui.TableNextColumn();
+            ImGui.TextColored(Helpers.HighlightColor, Strings.SlotConfig.PSConfig);
+            ImGui.TableNextColumn();
+            if (ImGui.Checkbox("##PSConfig", ref psConfig)) InternalCmd.PSConfig(psConfig);
         }
 
         public static void CombatFade()

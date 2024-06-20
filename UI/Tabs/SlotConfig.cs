@@ -24,7 +24,7 @@ internal class SlotConfig
 
         if (ImGui.BeginTabBar("SlotConfigSubTabs"))
         {
-            if (ImGui.BeginTabItem(Strings.SlotConfig.Config))
+            if (ImGui.BeginTabItem(Strings.SlotConfig.idle)) //if (ImGui.BeginTabItem(Strings.SlotConfig.Config))
             {
 
                 ImGui.Spacing();
@@ -42,9 +42,101 @@ internal class SlotConfig
                     ImGui.TableNextRow();
                     ImGui.TableNextColumn();
                     Rows.MainSettings();
+
+                    ImGui.EndTable();
+                }
+
+                ImGui.EndTabItem();
+            }
+            if (ImGui.BeginTabItem(Strings.SlotConfig.leftheld)) //if (ImGui.BeginTabItem(Strings.SlotConfig.Config))
+            {
+
+                ImGui.Spacing();
+                ImGui.Indent(10);
+
+                if (ImGui.BeginTable("Layout", 6, ImGuiTableFlags.SizingFixedFit | ImGuiTableFlags.ScrollX))
+                {
+                    ImGui.TableSetupColumn("labels", ImGuiTableColumnFlags.WidthFixed);
+                    ImGui.TableSetupColumn("controls", ImGuiTableColumnFlags.WidthFixed);
+                    ImGui.TableSetupColumn("reset", ImGuiTableColumnFlags.WidthFixed);
+                    ImGui.TableSetupColumn("labels2", ImGuiTableColumnFlags.WidthFixed);
+                    ImGui.TableSetupColumn("controls2", ImGuiTableColumnFlags.WidthFixed);
+                    ImGui.TableSetupColumn("reset2", ImGuiTableColumnFlags.WidthFixed);
+
+                    ImGui.TableNextRow();
+                    ImGui.TableNextColumn();
                     Rows.LeftHeld();
+
+                    ImGui.EndTable();
+                }
+
+                ImGui.EndTabItem();
+            }
+            if (ImGui.BeginTabItem(Strings.SlotConfig.rightheld)) //if (ImGui.BeginTabItem(Strings.SlotConfig.Config))
+            {
+
+                ImGui.Spacing();
+                ImGui.Indent(10);
+
+                if (ImGui.BeginTable("Layout", 6, ImGuiTableFlags.SizingFixedFit | ImGuiTableFlags.ScrollX))
+                {
+                    ImGui.TableSetupColumn("labels", ImGuiTableColumnFlags.WidthFixed);
+                    ImGui.TableSetupColumn("controls", ImGuiTableColumnFlags.WidthFixed);
+                    ImGui.TableSetupColumn("reset", ImGuiTableColumnFlags.WidthFixed);
+                    ImGui.TableSetupColumn("labels2", ImGuiTableColumnFlags.WidthFixed);
+                    ImGui.TableSetupColumn("controls2", ImGuiTableColumnFlags.WidthFixed);
+                    ImGui.TableSetupColumn("reset2", ImGuiTableColumnFlags.WidthFixed);
+
+                    ImGui.TableNextRow();
+                    ImGui.TableNextColumn();
                     Rows.RightHeld();
+
+                    ImGui.EndTable();
+                }
+
+                ImGui.EndTabItem();
+            }
+            if (ImGui.BeginTabItem(Strings.SlotConfig.lefttoright)) //if (ImGui.BeginTabItem(Strings.SlotConfig.Config))
+            {
+
+                ImGui.Spacing();
+                ImGui.Indent(10);
+
+                if (ImGui.BeginTable("Layout", 6, ImGuiTableFlags.SizingFixedFit | ImGuiTableFlags.ScrollX))
+                {
+                    ImGui.TableSetupColumn("labels", ImGuiTableColumnFlags.WidthFixed);
+                    ImGui.TableSetupColumn("controls", ImGuiTableColumnFlags.WidthFixed);
+                    ImGui.TableSetupColumn("reset", ImGuiTableColumnFlags.WidthFixed);
+                    ImGui.TableSetupColumn("labels2", ImGuiTableColumnFlags.WidthFixed);
+                    ImGui.TableSetupColumn("controls2", ImGuiTableColumnFlags.WidthFixed);
+                    ImGui.TableSetupColumn("reset2", ImGuiTableColumnFlags.WidthFixed);
+
+                    ImGui.TableNextRow();
+                    ImGui.TableNextColumn();
                     Rows.LeftToRight();
+
+                    ImGui.EndTable();
+                }
+
+                ImGui.EndTabItem();
+            }
+            if (ImGui.BeginTabItem(Strings.SlotConfig.righttoleft)) //if (ImGui.BeginTabItem(Strings.SlotConfig.Config))
+            {
+
+                ImGui.Spacing();
+                ImGui.Indent(10);
+
+                if (ImGui.BeginTable("Layout", 6, ImGuiTableFlags.SizingFixedFit | ImGuiTableFlags.ScrollX))
+                {
+                    ImGui.TableSetupColumn("labels", ImGuiTableColumnFlags.WidthFixed);
+                    ImGui.TableSetupColumn("controls", ImGuiTableColumnFlags.WidthFixed);
+                    ImGui.TableSetupColumn("reset", ImGuiTableColumnFlags.WidthFixed);
+                    ImGui.TableSetupColumn("labels2", ImGuiTableColumnFlags.WidthFixed);
+                    ImGui.TableSetupColumn("controls2", ImGuiTableColumnFlags.WidthFixed);
+                    ImGui.TableSetupColumn("reset2", ImGuiTableColumnFlags.WidthFixed);
+
+                    ImGui.TableNextRow();
+                    ImGui.TableNextColumn();
                     Rows.RightToLeft();
 
                     ImGui.EndTable();
@@ -66,9 +158,10 @@ internal class SlotConfig
         {
             var psConfig = Profile.PSConfig;
 
+
             // Idle
 
-            ImGui.TextColored(Helpers.DimColor, Strings.SlotConfig.idle.ToUpper());
+            //ImGui.TextColored(Helpers.DimColor, Strings.SlotConfig.idle.ToUpper());
             ImGui.TableNextRow();
             ImGui.TableNextColumn();
             ImGui.TextColored(Helpers.DimColor, Strings.SlotConfig.LeftHotbar);
@@ -83,6 +176,29 @@ internal class SlotConfig
             GroupSettings(Profile.Dpad_RightOffset, "idle", "right", "dpad");
             GroupSettings(Profile.Face_LeftOffset, "idle", "left", "face", psConfig);
             GroupSettings(Profile.Face_RightOffset, "idle", "right", "face", psConfig);
+            ImGui.TableNextRow();
+            ImGui.TableNextColumn();
+
+            // Button order is Down > Right > Up > Left // A > B > Y > X
+            GroupSettings(Profile.Down_LeftOffset, "idle", "left", "down");
+            GroupSettings(Profile.Down_RightOffset, "idle", "right", "down");
+            GroupSettings(Profile.Right_LeftOffset, "idle", "left", "right");
+            GroupSettings(Profile.Right_RightOffset, "idle", "right", "right");
+            GroupSettings(Profile.Up_LeftOffset, "idle", "left", "up");
+            GroupSettings(Profile.Up_RightOffset, "idle", "right", "up");
+            GroupSettings(Profile.Left_LeftOffset, "idle", "left", "left");
+            GroupSettings(Profile.Left_RightOffset, "idle", "right", "left");
+            ImGui.TableNextRow();
+            ImGui.TableNextColumn();
+
+            GroupSettings(Profile.A_LeftOffset, "idle", "left", "a", psConfig);
+            GroupSettings(Profile.A_RightOffset, "idle", "right", "a", psConfig);
+            GroupSettings(Profile.B_LeftOffset, "idle", "left", "b", psConfig);
+            GroupSettings(Profile.B_RightOffset, "idle", "right", "b", psConfig);
+            GroupSettings(Profile.Y_LeftOffset, "idle", "left", "y", psConfig);
+            GroupSettings(Profile.Y_RightOffset, "idle", "right", "y", psConfig);
+            GroupSettings(Profile.X_LeftOffset, "idle", "left", "x", psConfig);
+            GroupSettings(Profile.X_RightOffset, "idle", "right", "x", psConfig);
 
                 ImGui.TableNextRow();
                 ImGui.TableNextColumn();
@@ -94,7 +210,7 @@ internal class SlotConfig
 
             // Left Held
 
-            ImGui.TextColored(Helpers.DimColor, Strings.SlotConfig.leftheld.ToUpper());
+            //ImGui.TextColored(Helpers.DimColor, Strings.SlotConfig.leftheld.ToUpper());
             ImGui.TableNextRow();
             ImGui.TableNextColumn();
             ImGui.TextColored(Helpers.DimColor, Strings.SlotConfig.LeftHotbar);
@@ -109,6 +225,29 @@ internal class SlotConfig
             GroupSettings(Profile.Dpad_RightOffset_L, "leftheld", "right", "dpad");
             GroupSettings(Profile.Face_LeftOffset_L, "leftheld", "left", "face", psConfig);
             GroupSettings(Profile.Face_RightOffset_L, "leftheld", "right", "face", psConfig);
+            ImGui.TableNextRow();
+            ImGui.TableNextColumn();
+
+            // Button order is Down > Right > Up > Left // A > B > Y > X
+            GroupSettings(Profile.Down_LeftOffset_L, "leftheld", "left", "down");
+            GroupSettings(Profile.Down_RightOffset_L, "leftheld", "right", "down");
+            GroupSettings(Profile.Right_LeftOffset_L, "leftheld", "left", "right");
+            GroupSettings(Profile.Right_RightOffset_L, "leftheld", "right", "right");
+            GroupSettings(Profile.Up_LeftOffset_L, "leftheld", "left", "up");
+            GroupSettings(Profile.Up_RightOffset_L, "leftheld", "right", "up");
+            GroupSettings(Profile.Left_LeftOffset_L, "leftheld", "left", "left");
+            GroupSettings(Profile.Left_RightOffset_L, "leftheld", "right", "left");
+            ImGui.TableNextRow();
+            ImGui.TableNextColumn();
+
+            GroupSettings(Profile.A_LeftOffset_L, "leftheld", "left", "a", psConfig);
+            GroupSettings(Profile.A_RightOffset_L, "leftheld", "right", "a", psConfig);
+            GroupSettings(Profile.B_LeftOffset_L, "leftheld", "left", "b", psConfig);
+            GroupSettings(Profile.B_RightOffset_L, "leftheld", "right", "b", psConfig);
+            GroupSettings(Profile.Y_LeftOffset_L, "leftheld", "left", "y", psConfig);
+            GroupSettings(Profile.Y_RightOffset_L, "leftheld", "right", "y", psConfig);
+            GroupSettings(Profile.X_LeftOffset_L, "leftheld", "left", "x", psConfig);
+            GroupSettings(Profile.X_RightOffset_L, "leftheld", "right", "x", psConfig);
 
             ImGui.TableNextRow();
                 ImGui.TableNextColumn();
@@ -120,7 +259,7 @@ internal class SlotConfig
 
             // Right Held
 
-            ImGui.TextColored(Helpers.DimColor, Strings.SlotConfig.rightheld.ToUpper());
+            //ImGui.TextColored(Helpers.DimColor, Strings.SlotConfig.rightheld.ToUpper());
             ImGui.TableNextRow();
             ImGui.TableNextColumn();
             ImGui.TextColored(Helpers.DimColor, Strings.SlotConfig.LeftHotbar);
@@ -135,6 +274,29 @@ internal class SlotConfig
             GroupSettings(Profile.Dpad_RightOffset_R, "rightheld", "right", "dpad");
             GroupSettings(Profile.Face_LeftOffset_R, "rightheld", "left", "face", psConfig);
             GroupSettings(Profile.Face_RightOffset_R, "rightheld", "right", "face", psConfig);
+            ImGui.TableNextRow();
+            ImGui.TableNextColumn();
+
+            // Button order is Down > Right > Up > Left // A > B > Y > X
+            GroupSettings(Profile.Down_LeftOffset_R, "rightheld", "left", "down");
+            GroupSettings(Profile.Down_RightOffset_R, "rightheld", "right", "down");
+            GroupSettings(Profile.Right_LeftOffset_R, "rightheld", "left", "right");
+            GroupSettings(Profile.Right_RightOffset_R, "rightheld", "right", "right");
+            GroupSettings(Profile.Up_LeftOffset_R, "rightheld", "left", "up");
+            GroupSettings(Profile.Up_RightOffset_R, "rightheld", "right", "up");
+            GroupSettings(Profile.Left_LeftOffset_R, "rightheld", "left", "left");
+            GroupSettings(Profile.Left_RightOffset_R, "rightheld", "right", "left");
+            ImGui.TableNextRow();
+            ImGui.TableNextColumn();
+
+            GroupSettings(Profile.A_LeftOffset_R, "rightheld", "left", "a", psConfig);
+            GroupSettings(Profile.A_RightOffset_R, "rightheld", "right", "a", psConfig);
+            GroupSettings(Profile.B_LeftOffset_R, "rightheld", "left", "b", psConfig);
+            GroupSettings(Profile.B_RightOffset_R, "rightheld", "right", "b", psConfig);
+            GroupSettings(Profile.Y_LeftOffset_R, "rightheld", "left", "y", psConfig);
+            GroupSettings(Profile.Y_RightOffset_R, "rightheld", "right", "y", psConfig);
+            GroupSettings(Profile.X_LeftOffset_R, "rightheld", "left", "x", psConfig);
+            GroupSettings(Profile.X_RightOffset_R, "rightheld", "right", "x", psConfig);
 
             ImGui.TableNextRow();
                 ImGui.TableNextColumn();
@@ -146,13 +308,25 @@ internal class SlotConfig
 
             // Left to Right
 
-            ImGui.TextColored(Helpers.DimColor, Strings.SlotConfig.lefttoright.ToUpper());
+            //ImGui.TextColored(Helpers.DimColor, Strings.SlotConfig.lefttoright.ToUpper());
             ImGui.TableNextRow();
             ImGui.TableNextColumn();
 
             // Square is so silly
             GroupSettings(Profile.Face_LeftOffset_LR, "lefttoright", "left", "dpad");            // Dpad
             GroupSettings(Profile.Dpad_RightOffset_LR, "lefttoright", "left", "face", psConfig); // Face
+            ImGui.TableNextRow();
+            ImGui.TableNextColumn();
+
+            // Button order is Down > Right > Up > Left // A > B > Y > X
+            GroupSettings(Profile.Down_RightOffset_LR, "lefttoright", "right", "down");
+            GroupSettings(Profile.A_LeftOffset_LR, "lefttoright", "left", "a", psConfig);
+            GroupSettings(Profile.Right_RightOffset_LR, "lefttoright", "right", "right");
+            GroupSettings(Profile.B_LeftOffset_LR, "lefttoright", "left", "b", psConfig);
+            GroupSettings(Profile.Up_RightOffset_LR, "lefttoright", "right", "up");
+            GroupSettings(Profile.Y_LeftOffset_LR, "lefttoright", "left", "y", psConfig);
+            GroupSettings(Profile.Left_RightOffset_LR, "lefttoright", "right", "left");
+            GroupSettings(Profile.X_LeftOffset_LR, "lefttoright", "left", "x", psConfig);
 
             ImGui.TableNextRow();
                 ImGui.TableNextColumn();
@@ -164,13 +338,26 @@ internal class SlotConfig
 
             // Right to Left
 
-            ImGui.TextColored(Helpers.DimColor, Strings.SlotConfig.righttoleft.ToUpper());
+            //ImGui.TextColored(Helpers.DimColor, Strings.SlotConfig.righttoleft.ToUpper());
             ImGui.TableNextRow();
             ImGui.TableNextColumn();
 
             // Square is so silly
             GroupSettings(Profile.Face_LeftOffset_RL, "righttoleft", "left", "dpad");            // Dpad
             GroupSettings(Profile.Dpad_RightOffset_RL, "righttoleft", "left", "face", psConfig); // Face
+            ImGui.TableNextRow();
+            ImGui.TableNextColumn();
+
+            // Button order is Down > Right > Up > Left // A > B > Y > X
+            GroupSettings(Profile.Down_RightOffset_RL, "righttoleft", "right", "down");
+            GroupSettings(Profile.A_LeftOffset_RL, "righttoleft", "left", "a", psConfig);
+            GroupSettings(Profile.Right_RightOffset_RL, "righttoleft", "right", "right");
+            GroupSettings(Profile.B_LeftOffset_RL, "righttoleft", "left", "b", psConfig);
+            GroupSettings(Profile.Up_RightOffset_RL, "righttoleft", "right", "up");
+            GroupSettings(Profile.Y_LeftOffset_RL, "righttoleft", "left", "y", psConfig);
+            GroupSettings(Profile.Left_RightOffset_RL, "righttoleft", "right", "left");
+            GroupSettings(Profile.X_LeftOffset_RL, "righttoleft", "left", "x", psConfig);
+
 
             ImGui.TableNextRow();
                 ImGui.TableNextColumn();
@@ -194,32 +381,40 @@ internal class SlotConfig
 
                 case "left":
                     ImGui.TextColored(Helpers.HighlightColor, Strings.SlotConfig.Left_Dpad);
+                    reset = new Vector2(0, 29);
                     break;
                 case "right":
                     ImGui.TextColored(Helpers.HighlightColor, Strings.SlotConfig.Right_Dpad);
+                    reset = new Vector2(84, 29);
                     break;
                 case "up":
                     ImGui.TextColored(Helpers.HighlightColor, Strings.SlotConfig.Up_Dpad);
+                    reset = new Vector2(42, 5);
                     break;
                 case "down":
                     ImGui.TextColored(Helpers.HighlightColor, Strings.SlotConfig.Down_Dpad);
+                    reset = new Vector2(42,53);
                     break;
 
                 case "a":
                     if (ps) { ImGui.TextColored(Helpers.HighlightColor, Strings.SlotConfig.Ex_Button); }
                     else { ImGui.TextColored(Helpers.HighlightColor, Strings.SlotConfig.A_Button); }
+                    reset = new Vector2(42, 53);
                     break;
                 case "b":
                     if (ps) { ImGui.TextColored(Helpers.HighlightColor, Strings.SlotConfig.Cir_Button); }
                     else { ImGui.TextColored(Helpers.HighlightColor, Strings.SlotConfig.B_Button); }
+                    reset = new Vector2(84, 29);
                     break;
                 case "x":
                     if (ps) { ImGui.TextColored(Helpers.HighlightColor, Strings.SlotConfig.Squ_Button); }
                     else { ImGui.TextColored(Helpers.HighlightColor, Strings.SlotConfig.X_Button); }
+                    reset = new Vector2(0, 29);
                     break;
                 case "y":
                     if (ps) { ImGui.TextColored(Helpers.HighlightColor, Strings.SlotConfig.Tri_Button); }
                     else { ImGui.TextColored(Helpers.HighlightColor, Strings.SlotConfig.Y_Button); }
+                    reset = new Vector2(42, 5);
                     break;
             }
 

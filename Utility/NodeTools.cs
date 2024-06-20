@@ -155,7 +155,6 @@ namespace CrossUp.Utility
 
         public AtkNineGridNode* NineGrid => Node->GetAsAtkNineGridNode();
         public AtkUldPart* NGParts => NineGrid->PartsList->Parts;
-        public AtkDragDropInterface* DragDrop => (AtkDragDropInterface*)Node->GetAsAtkComponentNode();
 
         public static implicit operator AtkResNode*(NodeWrapper wrap) => wrap.Node;
         public static implicit operator NodeWrapper(AtkResNode* node) => new(node);

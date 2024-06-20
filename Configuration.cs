@@ -145,7 +145,6 @@ public class ConfigProfile
     public Vector2 Face_LeftOffset_RL { get; set; }
     public Vector2 Face_RightOffset_RL { get; set; }
 
-
     // Bar Elements
     public Vector2 PadlockOffset       { get; set; } = new(0);
     public Vector2 SetTextOffset       { get; set; } = new(0);

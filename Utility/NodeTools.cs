@@ -379,6 +379,11 @@ namespace CrossUp.Utility
             if (Node != null) Node->SetPositionFloat(x, y);
             return this;
         }
+        public NodeWrapper SetRotation(float deg)
+        {
+            if (Node != null) Node->Rotation = deg;
+            return this;
+        }
 
         public NodeWrapper SetRelativePos(float x = 0f, float y = 0f)
         {

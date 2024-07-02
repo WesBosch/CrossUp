@@ -19,7 +19,7 @@ namespace CrossUp.Features.Layout
 
             // Custom Offsets (I'm so sorry)  (( Like, REALLY sorry ))
 
-            Vector2 l_LO, r_LO, u_LO, d_LO, a_LO, b_LO, x_LO, y_LO,
+            Vector3 l_LO, r_LO, u_LO, d_LO, a_LO, b_LO, x_LO, y_LO,
                     l_RO, r_RO, u_RO, d_RO, a_RO, b_RO, x_RO, y_RO,
 
                     l_LO_L, r_LO_L, u_LO_L, d_LO_L, a_LO_L, b_LO_L, x_LO_L, y_LO_L,
@@ -57,7 +57,7 @@ namespace CrossUp.Features.Layout
                     dpad_LO = dpad_RO = dpad_LO_L = dpad_RO_L = dpad_LO_R = dpad_RO_R =
                     dpad_LO_LR = dpad_RO_LR = dpad_LO_RL = dpad_RO_RL =
                     face_LO = face_RO = face_LO_L = face_RO_L = face_LO_R = face_RO_R =
-                    face_LO_LR = face_RO_LR = face_LO_RL = face_RO_RL = Vector2.Zero;
+                    face_LO_LR = face_RO_LR = face_LO_RL = face_RO_RL = Vector3.Zero;
 
             if (Profile.ConfigureSlots)
             {
@@ -185,22 +185,22 @@ namespace CrossUp.Features.Layout
                     Bars.Cross.Buttons[1].ChildVis(true).SetRelativePos(face_LO.X, face_LO.Y);
                     Bars.Cross.Buttons[2].ChildVis(true).SetRelativePos((split * 2) + dpad_RO.X, dpad_RO.Y);
                     Bars.Cross.Buttons[3].ChildVis(true).SetRelativePos((split * 2) + face_RO.X, face_RO.Y);
-                    SetButtonLocations(0, 0, d_LO.X, d_LO.Y); // Down
-                    SetButtonLocations(0, 1, r_LO.X, r_LO.Y); // Right
-                    SetButtonLocations(0, 2, u_LO.X, u_LO.Y); // Up
-                    SetButtonLocations(0, 3, l_LO.X, l_LO.Y); // Left
-                    SetButtonLocations(1, 0, a_LO.X, a_LO.Y); // A
-                    SetButtonLocations(1, 1, b_LO.X, b_LO.Y); // B 
-                    SetButtonLocations(1, 2, y_LO.X, y_LO.Y); // Y
-                    SetButtonLocations(1, 3, x_LO.X, x_LO.Y); // X
-                    SetButtonLocations(2, 0, d_RO.X, d_RO.Y); // Down
-                    SetButtonLocations(2, 1, r_RO.X, r_RO.Y); // Right
-                    SetButtonLocations(2, 2, u_RO.X, u_RO.Y); // Up
-                    SetButtonLocations(2, 3, l_RO.X, l_RO.Y); // Left
-                    SetButtonLocations(3, 0, a_RO.X, a_RO.Y); // A
-                    SetButtonLocations(3, 1, b_RO.X, b_RO.Y); // B 
-                    SetButtonLocations(3, 2, y_RO.X, y_RO.Y); // Y
-                    SetButtonLocations(3, 3, x_RO.X, x_RO.Y); // X
+                    SetButtonLocations(0, 0, d_LO); // Down
+                    SetButtonLocations(0, 1, r_LO); // Right
+                    SetButtonLocations(0, 2, u_LO); // Up
+                    SetButtonLocations(0, 3, l_LO); // Left
+                    SetButtonLocations(1, 0, a_LO); // A
+                    SetButtonLocations(1, 1, b_LO); // B 
+                    SetButtonLocations(1, 2, y_LO); // Y
+                    SetButtonLocations(1, 3, x_LO); // X
+                    SetButtonLocations(2, 0, d_RO); // Down
+                    SetButtonLocations(2, 1, r_RO); // Right
+                    SetButtonLocations(2, 2, u_RO); // Up
+                    SetButtonLocations(2, 3, l_RO); // Left
+                    SetButtonLocations(3, 0, a_RO); // A
+                    SetButtonLocations(3, 1, b_RO); // B 
+                    SetButtonLocations(3, 2, y_RO); // Y
+                    SetButtonLocations(3, 3, x_RO); // X
                     break;
                 case ActionCrossSelect.Left:
                     Bars.Cross.Container.SetRelativePos();
@@ -212,22 +212,22 @@ namespace CrossUp.Features.Layout
                     Bars.Cross.Buttons[1].ChildVis(!fromLR || !mixBar).SetRelativePos(face_LO_L.X, face_LO_L.Y);
                     Bars.Cross.Buttons[2].ChildVis(!fromLR || mixBar).SetRelativePos((split * 2) + dpad_RO_L.X, dpad_RO_L.Y);
                     Bars.Cross.Buttons[3].ChildVis(!fromLR).SetRelativePos((split * 2) + face_RO_L.X, face_RO_L.Y);
-                    SetButtonLocations(0, 0, d_LO_L.X, d_LO_L.Y); // Down
-                    SetButtonLocations(0, 1, r_LO_L.X, r_LO_L.Y); // Right
-                    SetButtonLocations(0, 2, u_LO_L.X, u_LO_L.Y); // Up
-                    SetButtonLocations(0, 3, l_LO_L.X, l_LO_L.Y); // Left
-                    SetButtonLocations(1, 0, a_LO_L.X, a_LO_L.Y); // A
-                    SetButtonLocations(1, 1, b_LO_L.X, b_LO_L.Y); // B 
-                    SetButtonLocations(1, 2, y_LO_L.X, y_LO_L.Y); // Y
-                    SetButtonLocations(1, 3, x_LO_L.X, x_LO_L.Y); // X
-                    SetButtonLocations(2, 0, d_RO_L.X, d_RO_L.Y); // Down
-                    SetButtonLocations(2, 1, r_RO_L.X, r_RO_L.Y); // Right
-                    SetButtonLocations(2, 2, u_RO_L.X, u_RO_L.Y); // Up
-                    SetButtonLocations(2, 3, l_RO_L.X, l_RO_L.Y); // Left
-                    SetButtonLocations(3, 0, a_RO_L.X, a_RO_L.Y); // A
-                    SetButtonLocations(3, 1, b_RO_L.X, b_RO_L.Y); // B 
-                    SetButtonLocations(3, 2, y_RO_L.X, y_RO_L.Y); // Y
-                    SetButtonLocations(3, 3, x_RO_L.X, x_RO_L.Y); // X
+                    SetButtonLocations(0, 0, d_LO_L); // Down
+                    SetButtonLocations(0, 1, r_LO_L); // Right
+                    SetButtonLocations(0, 2, u_LO_L); // Up
+                    SetButtonLocations(0, 3, l_LO_L); // Left
+                    SetButtonLocations(1, 0, a_LO_L); // A
+                    SetButtonLocations(1, 1, b_LO_L); // B 
+                    SetButtonLocations(1, 2, y_LO_L ); // Y
+                    SetButtonLocations(1, 3, x_LO_L); // X
+                    SetButtonLocations(2, 0, d_RO_L); // Down
+                    SetButtonLocations(2, 1, r_RO_L); // Right
+                    SetButtonLocations(2, 2, u_RO_L); // Up
+                    SetButtonLocations(2, 3, l_RO_L); // Left
+                    SetButtonLocations(3, 0, a_RO_L); // A
+                    SetButtonLocations(3, 1, b_RO_L); // B 
+                    SetButtonLocations(3, 2, y_RO_L); // Y
+                    SetButtonLocations(3, 3, x_RO_L); // X
 
                     Bars.Cross.MiniSelectL.SetSize(miniSize, 140);
                     Bars.Cross.MiniSelectR.SetSize(miniSize, 140);
@@ -243,22 +243,22 @@ namespace CrossUp.Features.Layout
                     Bars.Cross.Buttons[1].ChildVis(!fromRL || mixBar).SetRelativePos((-split * 2) + face_LO_R.X, face_LO_R.Y);
                     Bars.Cross.Buttons[2].ChildVis(!fromRL || !mixBar).SetRelativePos(dpad_RO_R.X, dpad_RO_R.Y);
                     Bars.Cross.Buttons[3].ChildVis(true).SetRelativePos(face_RO_R.X, face_RO_R.Y);
-                    SetButtonLocations(0, 0, d_LO_R.X, d_LO_R.Y); // Down
-                    SetButtonLocations(0, 1, r_LO_R.X, r_LO_R.Y); // Right
-                    SetButtonLocations(0, 2, u_LO_R.X, u_LO_R.Y); // Up
-                    SetButtonLocations(0, 3, l_LO_R.X, l_LO_R.Y); // Left
-                    SetButtonLocations(1, 0, a_LO_R.X, a_LO_R.Y); // A
-                    SetButtonLocations(1, 1, b_LO_R.X, b_LO_R.Y); // B 
-                    SetButtonLocations(1, 2, y_LO_R.X, y_LO_R.Y); // Y
-                    SetButtonLocations(1, 3, x_LO_R.X, x_LO_R.Y); // X
-                    SetButtonLocations(2, 0, d_RO_R.X, d_RO_R.Y); // Down
-                    SetButtonLocations(2, 1, r_RO_R.X, r_RO_R.Y); // Right
-                    SetButtonLocations(2, 2, u_RO_R.X, u_RO_R.Y); // Up
-                    SetButtonLocations(2, 3, l_RO_R.X, l_RO_R.Y); // Left
-                    SetButtonLocations(3, 0, a_RO_R.X, a_RO_R.Y); // A
-                    SetButtonLocations(3, 1, b_RO_R.X, b_RO_R.Y); // B 
-                    SetButtonLocations(3, 2, y_RO_R.X, y_RO_R.Y); // Y
-                    SetButtonLocations(3, 3, x_RO_R.X, x_RO_R.Y); // X
+                    SetButtonLocations(0, 0, d_LO_R); // Down
+                    SetButtonLocations(0, 1, r_LO_R); // Right
+                    SetButtonLocations(0, 2, u_LO_R); // Up
+                    SetButtonLocations(0, 3, l_LO_R); // Left
+                    SetButtonLocations(1, 0, a_LO_R); // A
+                    SetButtonLocations(1, 1, b_LO_R); // B 
+                    SetButtonLocations(1, 2, y_LO_R); // Y
+                    SetButtonLocations(1, 3, x_LO_R); // X
+                    SetButtonLocations(2, 0, d_RO_R); // Down
+                    SetButtonLocations(2, 1, r_RO_R); // Right
+                    SetButtonLocations(2, 2, u_RO_R); // Up
+                    SetButtonLocations(2, 3, l_RO_R); // Left
+                    SetButtonLocations(3, 0, a_RO_R); // A
+                    SetButtonLocations(3, 1, b_RO_R); // B 
+                    SetButtonLocations(3, 2, y_RO_R); // Y
+                    SetButtonLocations(3, 3, x_RO_R); // X
 
                     Bars.Cross.MiniSelectL.SetSize(miniSize, 140);
                     Bars.Cross.MiniSelectR.SetSize(miniSize, 140);
@@ -273,14 +273,14 @@ namespace CrossUp.Features.Layout
                     Bars.Cross.Buttons[1].ChildVis(true).SetRelativePos(face_LO_LR.X, face_LO_LR.Y);
                     Bars.Cross.Buttons[2].ChildVis(true).SetRelativePos(dpad_RO_LR.X, dpad_RO_LR.Y);
                     Bars.Cross.Buttons[3].ChildVis(false).SetRelativePos(face_RO_LR.X, face_RO_LR.Y);
-                    SetButtonLocations(1, 0, a_LO_LR.X, a_LO_LR.Y); // A
-                    SetButtonLocations(1, 1, b_LO_LR.X, b_LO_LR.Y); // B 
-                    SetButtonLocations(1, 2, y_LO_LR.X, y_LO_LR.Y); // Y
-                    SetButtonLocations(1, 3, x_LO_LR.X, x_LO_LR.Y); // X
-                    SetButtonLocations(2, 0, d_RO_LR.X, d_RO_LR.Y); // Down
-                    SetButtonLocations(2, 1, r_RO_LR.X, r_RO_LR.Y); // Right
-                    SetButtonLocations(2, 2, u_RO_LR.X, u_RO_LR.Y); // Up
-                    SetButtonLocations(2, 3, l_RO_LR.X, l_RO_LR.Y); // Left
+                    SetButtonLocations(1, 0, a_LO_LR); // A
+                    SetButtonLocations(1, 1, b_LO_LR); // B 
+                    SetButtonLocations(1, 2, y_LO_LR); // Y
+                    SetButtonLocations(1, 3, x_LO_LR); // X
+                    SetButtonLocations(2, 0, d_RO_LR); // Down
+                    SetButtonLocations(2, 1, r_RO_LR); // Right
+                    SetButtonLocations(2, 2, u_RO_LR); // Up
+                    SetButtonLocations(2, 3, l_RO_LR); // Left
                     break;
 
                 case ActionCrossSelect.RL:
@@ -292,14 +292,14 @@ namespace CrossUp.Features.Layout
                     Bars.Cross.Buttons[1].ChildVis(true).SetRelativePos(face_LO_RL.X, face_LO_RL.Y);
                     Bars.Cross.Buttons[2].ChildVis(true).SetRelativePos(dpad_RO_RL.X, dpad_RO_RL.Y);
                     Bars.Cross.Buttons[3].ChildVis(false).SetRelativePos(face_RO_RL.X, face_RO_RL.Y);
-                    SetButtonLocations(1, 0, a_LO_RL.X, a_LO_RL.Y); // A
-                    SetButtonLocations(1, 1, b_LO_RL.X, b_LO_RL.Y); // B 
-                    SetButtonLocations(1, 2, y_LO_RL.X, y_LO_RL.Y); // Y
-                    SetButtonLocations(1, 3, x_LO_RL.X, x_LO_RL.Y); // X
-                    SetButtonLocations(2, 0, d_RO_RL.X, d_RO_RL.Y); // Down
-                    SetButtonLocations(2, 1, r_RO_RL.X, r_RO_RL.Y); // Right
-                    SetButtonLocations(2, 2, u_RO_RL.X, u_RO_RL.Y); // Up
-                    SetButtonLocations(2, 3, l_RO_RL.X, l_RO_RL.Y); // Left
+                    SetButtonLocations(1, 0, a_LO_RL); // A
+                    SetButtonLocations(1, 1, b_LO_RL); // B 
+                    SetButtonLocations(1, 2, y_LO_RL); // Y
+                    SetButtonLocations(1, 3, x_LO_RL); // X
+                    SetButtonLocations(2, 0, d_RO_RL); // Down
+                    SetButtonLocations(2, 1, r_RO_RL); // Right
+                    SetButtonLocations(2, 2, u_RO_RL); // Up
+                    SetButtonLocations(2, 3, l_RO_RL); // Left
                     break;
             }
         }
@@ -317,17 +317,14 @@ namespace CrossUp.Features.Layout
                 }
         }
 
-        public static unsafe void SetButtonLocations(int group, int button, float x, float y)
+        public static unsafe void SetButtonLocations(int group, int button, Vector3 offset)
         {
+            var x = offset.X; var y = offset.Y; var z = offset.Z;
+
             var defaultPos = Vector2.Zero;
-
-            /*if (button == 0) { defaultPos = new Vector2(42, 53); }
-            if (button == 1) { defaultPos = new Vector2(84, 29); }
-            if (button == 2) { defaultPos = new Vector2(42, 5); }
-            if (button == 3) { defaultPos = new Vector2(0, 29); }*/
-
-
+            var rotation = (float)Math.PI / 180 * z;
             Bars.Cross.Buttons[group][button].SetPos(defaultPos.X + x, defaultPos.Y + y);
+            Bars.Cross.Buttons[group][button].SetRotation(rotation);
 
         }
 

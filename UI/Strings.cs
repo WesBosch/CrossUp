@@ -176,6 +176,8 @@ internal static class Strings
         public static string rightheld                  => Localize("rightheld", "Right Held");
         public static string lefttoright                => Localize("lefttoright", "Left -> Right");
         public static string righttoleft                => Localize("righttoleft", "Right -> Left");
+        public static string expandedholdlr             => Localize("expandedholdlr", "Expanded L->R");
+        public static string expandedholdrl             => Localize("expandedholdrl", "Expanded R->L");
     }
 
     public static readonly string[] NumSymbols = { "", "", "", "", "" };

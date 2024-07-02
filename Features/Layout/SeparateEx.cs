@@ -5,7 +5,6 @@ using CrossUp.Game.Hooks;
 using CrossUp.Game.Hotbar;
 using CrossUp.Utility;
 using Dalamud.Game.Addon.Lifecycle;
-using FFXIVClientStructs.FFXIV.Client.UI.Misc;
 using static CrossUp.CrossUp;
 
 namespace CrossUp.Features.Layout
@@ -117,7 +116,8 @@ namespace CrossUp.Features.Layout
 
                             Bars.LR.Buttons[i + 8].SetVis(false).SetScale(0.85F); // hide unneeded borrowed buttons
                             Bars.RL.Buttons[i + 8].SetVis(false).SetScale(0.85F);
-                        }
+
+                            }
 
                         break;
                     }

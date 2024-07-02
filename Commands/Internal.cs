@@ -234,7 +234,7 @@ internal class InternalCmd
         ApplyLayout();
     }
 
-    internal static void SaveSlot(string status, string hotbar, string slot, Vector2 offset)
+    internal static void SaveSlot(string status, string hotbar, string slot, Vector3 offset)
     {
         switch (status)
         {

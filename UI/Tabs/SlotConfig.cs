@@ -363,10 +363,41 @@ internal class SlotConfig
                 ImGui.TableNextColumn();
         }
 
-        public static void GroupSettings(Vector2 value, string status, string hotbar, string slot, bool ps = false)
+        public static void ExpandedHoldLR()
         {
-            var offset = new System.Numerics.Vector2(0, 0); // why..?
-            var reset = new System.Numerics.Vector2(0, 0);
+            var psConfig = Profile.PSConfig;
+
+            // Right to Left
+
+            //ImGui.TextColored(Helpers.DimColor, Strings.SlotConfig.righttoleft.ToUpper());
+            ImGui.TableNextRow();
+            ImGui.TableNextColumn();
+
+            // Square is so silly
+            GroupSettings(Profile.Face_RightOffset_LR, "lefttoright", "right", "dpad");            // Dpad
+            GroupSettings(Profile.Dpad_LeftOffset_LR, "lefttoright", "left", "face", psConfig); // Face
+            ImGui.TableNextRow();
+            ImGui.TableNextColumn();
+
+            // Button order is Down > Right > Up > Left // A > B > Y > X
+            GroupSettings(Profile.Down_LeftOffset_LR, "lefttoright", "left", "down");
+            GroupSettings(Profile.A_RightOffset_LR, "lefttoright", "right", "a", psConfig);
+            GroupSettings(Profile.Right_LeftOffset_LR, "lefttoright", "left", "right");
+            GroupSettings(Profile.B_RightOffset_LR, "lefttoright", "right", "b", psConfig);
+            GroupSettings(Profile.Up_LeftOffset_LR, "lefttoright", "left", "up");
+            GroupSettings(Profile.Y_RightOffset_LR, "lefttoright", "right", "y", psConfig);
+            GroupSettings(Profile.Left_LeftOffset_LR, "lefttoright", "left", "left");
+            GroupSettings(Profile.X_RightOffset_LR, "lefttoright", "right", "x", psConfig);
+
+
+            ImGui.TableNextRow();
+            ImGui.TableNextColumn();
+        }
+
+        public static void GroupSettings(Vector3 value, string status, string hotbar, string slot, bool ps = false)
+        {
+            var offset = new System.Numerics.Vector3(0, 0, 0); // why..?
+            var reset = new System.Numerics.Vector3(0, 0, 0);
             offset = value;
 
             switch (slot)
@@ -381,40 +412,40 @@ internal class SlotConfig
 
                 case "left":
                     ImGui.TextColored(Helpers.HighlightColor, Strings.SlotConfig.Left_Dpad);
-                    reset = new Vector2(0, 29);
+                    reset = new Vector3(0, 29, 0);
                     break;
                 case "right":
                     ImGui.TextColored(Helpers.HighlightColor, Strings.SlotConfig.Right_Dpad);
-                    reset = new Vector2(84, 29);
+                    reset = new Vector3(84, 29, 0);
                     break;
                 case "up":
                     ImGui.TextColored(Helpers.HighlightColor, Strings.SlotConfig.Up_Dpad);
-                    reset = new Vector2(42, 5);
+                    reset = new Vector3(42, 5, 0);
                     break;
                 case "down":
                     ImGui.TextColored(Helpers.HighlightColor, Strings.SlotConfig.Down_Dpad);
-                    reset = new Vector2(42,53);
+                    reset = new Vector3(42,53, 0);
                     break;
 
                 case "a":
                     if (ps) { ImGui.TextColored(Helpers.HighlightColor, Strings.SlotConfig.Ex_Button); }
                     else { ImGui.TextColored(Helpers.HighlightColor, Strings.SlotConfig.A_Button); }
-                    reset = new Vector2(42, 53);
+                    reset = new Vector3(42, 53, 0);
                     break;
                 case "b":
                     if (ps) { ImGui.TextColored(Helpers.HighlightColor, Strings.SlotConfig.Cir_Button); }
                     else { ImGui.TextColored(Helpers.HighlightColor, Strings.SlotConfig.B_Button); }
-                    reset = new Vector2(84, 29);
+                    reset = new Vector3(84, 29, 0);
                     break;
                 case "x":
                     if (ps) { ImGui.TextColored(Helpers.HighlightColor, Strings.SlotConfig.Squ_Button); }
                     else { ImGui.TextColored(Helpers.HighlightColor, Strings.SlotConfig.X_Button); }
-                    reset = new Vector2(0, 29);
+                    reset = new Vector3(0, 29, 0);
                     break;
                 case "y":
                     if (ps) { ImGui.TextColored(Helpers.HighlightColor, Strings.SlotConfig.Tri_Button); }
                     else { ImGui.TextColored(Helpers.HighlightColor, Strings.SlotConfig.Y_Button); }
-                    reset = new Vector2(42, 5);
+                    reset = new Vector3(42, 5, 0);
                     break;
             }
 
@@ -426,7 +457,7 @@ internal class SlotConfig
 
             ImGui.TableNextColumn();
             ImGui.SetNextItemWidth(90 * Helpers.Scale);
-            if (ImGui.DragFloat2($"##{status}_{hotbar}_{slot}", ref offset, 1, -9999, 9999, "%g")) InternalCmd.SaveSlot(status, hotbar, slot, offset);
+            if (ImGui.DragFloat3($"##{status}_{hotbar}_{slot}", ref offset, 1, -9999, 9999, "%g")) InternalCmd.SaveSlot(status, hotbar, slot, offset);
 
             //ImGui.TableNextRow();
             ImGui.TableNextColumn();

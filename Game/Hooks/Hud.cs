@@ -21,7 +21,7 @@ namespace CrossUp.Game.Hooks
         private delegate uint SetHudLayoutDel(IntPtr filePtr, uint hudLayout, byte unk0, byte unk1);
         private static Hook<SetHudLayoutDel>? SetHudLayoutHook;
 
-        public static readonly unsafe AgentHudLayout* HudLayout = Framework.Instance()->GetUiModule()->GetAgentModule()->GetAgentHudLayout();
+        public static readonly unsafe AgentHUDLayout* HudLayout = Framework.Instance()->GetUIModule()->GetAgentModule()->GetAgentHUDLayout();
 
         public HudHooks()
         {

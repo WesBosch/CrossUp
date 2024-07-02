@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Numerics;
 using CrossUp.Utility;
+using static CrossUp.CrossUp;
 
 namespace CrossUp.Features.Layout
 {
@@ -121,7 +122,7 @@ namespace CrossUp.Features.Layout
                 foreach (var mSlot in Cross[3]) mSlot.RunTween();
             }
 
-            internal static readonly MetaSlot[] LR =
+            internal static MetaSlot[] LR =
             {
                 new(pos: new(0, 24),   origin: new(102, 39)),
                 new(pos: new(42, 0),   origin: new(60, 63)),

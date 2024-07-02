@@ -155,6 +155,7 @@ namespace CrossUp.Utility
 
         public AtkNineGridNode* NineGrid => Node->GetAsAtkNineGridNode();
         public AtkUldPart* NGParts => NineGrid->PartsList->Parts;
+        public AtkDragDropInterface* DragDrop => (AtkDragDropInterface*)Node->GetAsAtkComponentNode();
 
         public static implicit operator AtkResNode*(NodeWrapper wrap) => wrap.Node;
         public static implicit operator NodeWrapper(AtkResNode* node) => new(node);
@@ -377,6 +378,11 @@ namespace CrossUp.Utility
         public NodeWrapper SetPos(float x, float y)
         {
             if (Node != null) Node->SetPositionFloat(x, y);
+            return this;
+        }
+        public NodeWrapper SetRotation(float deg)
+        {
+            if (Node != null) Node->Rotation = deg;
             return this;
         }
 

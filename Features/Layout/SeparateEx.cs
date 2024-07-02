@@ -120,7 +120,8 @@ namespace CrossUp.Features.Layout
 
                             Bars.LR.Buttons[i + 8].SetVis(false).SetScale(0.85F); // hide unneeded borrowed buttons
                             Bars.RL.Buttons[i + 8].SetVis(false).SetScale(0.85F);
-                        }
+
+                            }
 
                         break;
                     }

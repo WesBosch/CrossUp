@@ -146,6 +146,39 @@ internal static class Strings
             public static string IdleTransp            => Localize("CmdArgIdleTransp", "idle transparency");
         }
     }
+    public static class SlotConfig
+    {
+        public static string TabTitle                   => Localize("SlotConfig", "Offset Config");
+        public static string Config                     => Localize("Config", "Config");
+        public static string Enable                     => Localize("Enable", "Enable Custom Offsets");
+        public static string LeftHotbar                 => Localize("LeftHotbar", "Left Hotbar");
+        public static string RightHotbar                => Localize("RightHotbar", "Right Hotbar");
+        public static string Left_Dpad                  => Localize("Left_Dpad", "D-Pad Left");
+        public static string Right_Dpad                 => Localize("Right_Dpad", "D-Pad Right");
+        public static string Up_Dpad                    => Localize("Up_Dpad", "D-Pad Up");
+        public static string Down_Dpad                  => Localize("Down_Dpad", "D-Pad Down");
+        public static string PSConfig                   => Localize("PSConfig", "Use PS Buttons?");
+        public static string A_Button                   => Localize("A_Button", "A Button");
+        public static string B_Button                   => Localize("B_Button", "B Button");
+        public static string X_Button                   => Localize("X_Button", "X Button");
+        public static string Y_Button                   => Localize("Y_Button", "Y Button");
+        public static string Ex_Button                  => Localize("Ex_Button", "X Button");
+        public static string Cir_Button                 => Localize("Cir_Button", "Circle Button");
+        public static string Squ_Button                 => Localize("Squ_Button", "Square Button");
+        public static string Tri_Button                 => Localize("Tri_Button", "Triange Button");
+        public static string Info                       => Localize("Info", "Info");
+        public static string ComingSoon                 => Localize("ComingSoon", "Coming Soon!");
+        public static string Dpad                       => Localize("dpad", "D-Pad Buttons");
+        public static string Face                       => Localize("face", "ABXY Buttons");
+        public static string FacePS                     => Localize("faceps", "×○△□ Buttons");
+        public static string idle                       => Localize("idle", "Idle Config");
+        public static string leftheld                   => Localize("leftheld", "Left Held");
+        public static string rightheld                  => Localize("rightheld", "Right Held");
+        public static string lefttoright                => Localize("lefttoright", "Left -> Right");
+        public static string righttoleft                => Localize("righttoleft", "Right -> Left");
+        public static string expandedholdlr             => Localize("expandedholdlr", "Expanded L->R");
+        public static string expandedholdrl             => Localize("expandedholdrl", "Expanded R->L");
+    }
 
     public static readonly string[] NumSymbols = { "", "", "", "", "" };
 }

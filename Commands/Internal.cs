@@ -220,5 +220,322 @@ internal class InternalCmd
         ExBarOnlyOne(t.onlyOne);
     }
 
+            case "leftheld":
+                switch (hotbar)
+                {
+                    case "left":
+                        switch (slot)
+                        {
+                            case "dpad":
+                                Profile.Dpad_LeftOffset_L = offset;
+                                break;
+                            case "face":
+                                Profile.Face_LeftOffset_L = offset;
+                                break;
+                            case "left":
+                                Profile.Left_LeftOffset_L = offset;
+                                break;
+                            case "right":
+                                Profile.Right_LeftOffset_L = offset;
+                                break;
+                            case "up":
+                                Profile.Up_LeftOffset_L = offset;
+                                break;
+                            case "down":
+                                Profile.Down_LeftOffset_L = offset;
+                                break;
+                            case "a":
+                                Profile.A_LeftOffset_L = offset;
+                                break;
+                            case "b":
+                                Profile.B_LeftOffset_L = offset;
+                                break;
+                            case "x":
+                                Profile.X_LeftOffset_L = offset;
+                                break;
+                            case "y":
+                                Profile.Y_LeftOffset_L = offset;
+                                break;
+                        }
+                        break;
+
+                    case "right":
+                        switch (slot)
+                        {
+                            case "dpad":
+                                Profile.Dpad_RightOffset_L = offset;
+                                break;
+                            case "face":
+                                Profile.Face_RightOffset_L = offset;
+                                break;
+                            case "left":
+                                Profile.Left_RightOffset_L = offset;
+                                break;
+                            case "right":
+                                Profile.Right_RightOffset_L = offset;
+                                break;
+                            case "up":
+                                Profile.Up_RightOffset_L = offset;
+                                break;
+                            case "down":
+                                Profile.Down_RightOffset_L = offset;
+                                break;
+                            case "a":
+                                Profile.A_RightOffset_L = offset;
+                                break;
+                            case "b":
+                                Profile.B_RightOffset_L = offset;
+                                break;
+                            case "x":
+                                Profile.X_RightOffset_L = offset;
+                                break;
+                            case "y":
+                                Profile.Y_RightOffset_L = offset;
+                                break;
+                        }
+                        break;
+
+                }
+                break;
+            case "rightheld":
+                switch (hotbar)
+                {
+                    case "left":
+                        switch (slot)
+                        {
+                            case "dpad":
+                                Profile.Dpad_LeftOffset_R = offset;
+                                break;
+                            case "face":
+                                Profile.Face_LeftOffset_R = offset;
+                                break;
+                            case "left":
+                                Profile.Left_LeftOffset_R = offset;
+                                break;
+                            case "right":
+                                Profile.Right_LeftOffset_R = offset;
+                                break;
+                            case "up":
+                                Profile.Up_LeftOffset_R = offset;
+                                break;
+                            case "down":
+                                Profile.Down_LeftOffset_R = offset;
+                                break;
+                            case "a":
+                                Profile.A_LeftOffset_R = offset;
+                                break;
+                            case "b":
+                                Profile.B_LeftOffset_R = offset;
+                                break;
+                            case "x":
+                                Profile.X_LeftOffset_R = offset;
+                                break;
+                            case "y":
+                                Profile.Y_LeftOffset_R = offset;
+                                break;
+                        }
+                        break;
+
+                    case "right":
+                        switch (slot)
+                        {
+                            case "dpad":
+                                Profile.Dpad_RightOffset_R = offset;
+                                break;
+                            case "face":
+                                Profile.Face_RightOffset_R = offset;
+                                break;
+                            case "left":
+                                Profile.Left_RightOffset_R = offset;
+                                break;
+                            case "right":
+                                Profile.Right_RightOffset_R = offset;
+                                break;
+                            case "up":
+                                Profile.Up_RightOffset_R = offset;
+                                break;
+                            case "down":
+                                Profile.Down_RightOffset_R = offset;
+                                break;
+                            case "a":
+                                Profile.A_RightOffset_R = offset;
+                                break;
+                            case "b":
+                                Profile.B_RightOffset_R = offset;
+                                break;
+                            case "x":
+                                Profile.X_RightOffset_R = offset;
+                                break;
+                            case "y":
+                                Profile.Y_RightOffset_R = offset;
+                                break;
+                        }
+                        break;
+
+                }
+                break;
+
+            case "lefttoright":
+                switch (hotbar)
+                {
+                    case "left":
+                        switch (slot)
+                        {
+                            // wrong on purpose, thank square
+                            case "dpad":
+                                Profile.Face_LeftOffset_LR = offset;
+                                break;
+                            case "face":
+                                Profile.Dpad_RightOffset_LR = offset;
+                                break;
+
+                            case "left":
+                                Profile.Left_LeftOffset_LR = offset;
+                                break;
+                            case "right":
+                                Profile.Right_LeftOffset_LR = offset;
+                                break;
+                            case "up":
+                                Profile.Up_LeftOffset_LR = offset;
+                                break;
+                            case "down":
+                                Profile.Down_LeftOffset_LR = offset;
+                                break;
+                            case "a":
+                                Profile.A_LeftOffset_LR = offset;
+                                break;
+                            case "b":
+                                Profile.B_LeftOffset_LR = offset;
+                                break;
+                            case "x":
+                                Profile.X_LeftOffset_LR = offset;
+                                break;
+                            case "y":
+                                Profile.Y_LeftOffset_LR = offset;
+                                break;
+                        }
+                        break;
+
+                    case "right":
+                        switch (slot)
+                        {
+                            // wrong on purpose, thank square
+                            case "dpad":
+                                Profile.Face_RightOffset_LR = offset;
+                                break;
+                            case "face":
+                                Profile.Dpad_LeftOffset_LR = offset;
+                                break;
+                            case "left":
+                                Profile.Left_RightOffset_LR = offset;
+                                break;
+                            case "right":
+                                Profile.Right_RightOffset_LR = offset;
+                                break;
+                            case "up":
+                                Profile.Up_RightOffset_LR = offset;
+                                break;
+                            case "down":
+                                Profile.Down_RightOffset_LR = offset;
+                                break;
+                            case "a":
+                                Profile.A_RightOffset_LR = offset;
+                                break;
+                            case "b":
+                                Profile.B_RightOffset_LR = offset;
+                                break;
+                            case "x":
+                                Profile.X_RightOffset_LR = offset;
+                                break;
+                            case "y":
+                                Profile.Y_RightOffset_LR = offset;
+                                break;
+                        }
+                        break;
+
+                }
+                break;
+            case "righttoleft":
+                switch (hotbar)
+                {
+                    case "left":
+                        switch (slot)
+                        {
+                            // wrong on purpose, thank square
+                            case "dpad":
+                                Profile.Face_LeftOffset_RL = offset;
+                                break;
+                            case "face":
+                                Profile.Dpad_RightOffset_RL = offset;
+                                break;
+                            case "left":
+                                Profile.Left_LeftOffset_RL = offset;
+                                break;
+                            case "right":
+                                Profile.Right_LeftOffset_RL = offset;
+                                break;
+                            case "up":
+                                Profile.Up_LeftOffset_RL = offset;
+                                break;
+                            case "down":
+                                Profile.Down_LeftOffset_RL = offset;
+                                break;
+                            case "a":
+                                Profile.A_LeftOffset_RL = offset;
+                                break;
+                            case "b":
+                                Profile.B_LeftOffset_RL = offset;
+                                break;
+                            case "x":
+                                Profile.X_LeftOffset_RL = offset;
+                                break;
+                            case "y":
+                                Profile.Y_LeftOffset_RL = offset;
+                                break;
+                        }
+                        break;
+
+                    case "right":
+                        switch (slot)
+                        {
+                            // wrong on purpose, thank square
+                            case "dpad":
+                                Profile.Face_RightOffset_RL = offset;
+                                break;
+                            case "face":
+                                Profile.Dpad_LeftOffset_RL = offset;
+                                break;
+                            case "left":
+                                Profile.Left_RightOffset_RL = offset;
+                                break;
+                            case "right":
+                                Profile.Right_RightOffset_RL = offset;
+                                break;
+                            case "up":
+                                Profile.Up_RightOffset_RL = offset;
+                                break;
+                            case "down":
+                                Profile.Down_RightOffset_RL = offset;
+                                break;
+                            case "a":
+                                Profile.A_RightOffset_RL = offset;
+                                break;
+                            case "b":
+                                Profile.B_RightOffset_RL = offset;
+                                break;
+                            case "x":
+                                Profile.X_RightOffset_RL = offset;
+                                break;
+                            case "y":
+                                Profile.Y_RightOffset_RL = offset;
+                                break;
+                        }
+                        break;
+
+                }
+                break;
+        }
+        ApplyLayout();
+    }
 
 }

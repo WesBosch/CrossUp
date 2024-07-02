@@ -188,8 +188,8 @@ internal class SlotConfig
             GroupSettings(Profile.Up_RightOffset, "idle", "right", "up");
             GroupSettings(Profile.Left_LeftOffset, "idle", "left", "left");
             GroupSettings(Profile.Left_RightOffset, "idle", "right", "left");
-            ImGui.TableNextRow();
-            ImGui.TableNextColumn();
+                ImGui.TableNextRow();
+                ImGui.TableNextColumn();
 
             GroupSettings(Profile.A_LeftOffset, "idle", "left", "a", psConfig);
             GroupSettings(Profile.A_RightOffset, "idle", "right", "a", psConfig);
@@ -391,7 +391,7 @@ internal class SlotConfig
 
 
             ImGui.TableNextRow();
-            ImGui.TableNextColumn();
+                ImGui.TableNextColumn();
         }
 
         public static void GroupSettings(Vector3 value, string status, string hotbar, string slot, bool ps = false)
@@ -458,6 +458,7 @@ internal class SlotConfig
             ImGui.TableNextColumn();
             ImGui.SetNextItemWidth(90 * Helpers.Scale);
             if (ImGui.DragFloat3($"##{status}_{hotbar}_{slot}", ref offset, 1, -9999, 9999, "%g")) InternalCmd.SaveSlot(status, hotbar, slot, offset);
+            if (ImGui.DragFloat2($"##{status}_{hotbar}_{slot}", ref offset, 1, -9999, 9999, "%g")) InternalCmd.SaveSlot(status, hotbar, slot, offset);
 
             //ImGui.TableNextRow();
             ImGui.TableNextColumn();

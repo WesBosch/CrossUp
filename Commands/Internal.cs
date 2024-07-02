@@ -3,10 +3,8 @@ using System.Numerics;
 using CrossUp.Features;
 using CrossUp.Features.Layout;
 using CrossUp.Game;
-using CrossUp.Game.Hooks;
-using CrossUp.UI;
-using ImGuiNET;
 using static CrossUp.CrossUp;
+using Events = CrossUp.Game.Events;
 
 // ReSharper disable MemberCanBePrivate.Global
 
@@ -221,100 +219,6 @@ internal class InternalCmd
         ExBarOn(t.show);
         ExBarOnlyOne(t.onlyOne);
     }
-
-    internal static void ConfigureSlots(bool on)
-    {
-        Profile.ConfigureSlots = on;
-        ApplyLayout();
-    }
-
-    internal static void PSConfig(bool on)
-    {
-        Profile.PSConfig = on;
-        ApplyLayout();
-    }
-
-    internal static void SaveSlot(string status, string hotbar, string slot, Vector3 offset)
-    {
-        switch (status)
-        {
-            case "idle":
-                switch (hotbar)
-                {
-                    case "left":
-                        switch (slot)
-                        {
-                            case "dpad":
-                                Profile.Dpad_LeftOffset = offset;
-                                break;
-                            case "face":
-                                Profile.Face_LeftOffset = offset;
-                                break;
-                            case "left":
-                                Profile.Left_LeftOffset = offset;
-                                break;
-                            case "right":
-                                Profile.Right_LeftOffset = offset;
-                                break;
-                            case "up":
-                                Profile.Up_LeftOffset = offset;
-                                break;
-                            case "down":
-                                Profile.Down_LeftOffset = offset;
-                                break;
-                            case "a":
-                                Profile.A_LeftOffset = offset;
-                                break;
-                            case "b":
-                                Profile.B_LeftOffset = offset;
-                                break;
-                            case "x":
-                                Profile.X_LeftOffset = offset;
-                                break;
-                            case "y":
-                                Profile.Y_LeftOffset = offset;
-                                break;
-                        }
-                        break;
-
-                    case "right":
-                        switch (slot)
-                        {
-                            case "dpad":
-                                Profile.Dpad_RightOffset = offset;
-                                break;
-                            case "face":
-                                Profile.Face_RightOffset = offset;
-                                break;
-                            case "left":
-                                Profile.Left_RightOffset = offset;
-                                break;
-                            case "right":
-                                Profile.Right_RightOffset = offset;
-                                break;
-                            case "up":
-                                Profile.Up_RightOffset = offset;
-                                break;
-                            case "down":
-                                Profile.Down_RightOffset = offset;
-                                break;
-                            case "a":
-                                Profile.A_RightOffset = offset;
-                                break;
-                            case "b":
-                                Profile.B_RightOffset = offset;
-                                break;
-                            case "x":
-                                Profile.X_RightOffset = offset;
-                                break;
-                            case "y":
-                                Profile.Y_RightOffset = offset;
-                                break;
-                        }
-                        break;
-
-                }
-                break;
 
             case "leftheld":
                 switch (hotbar)

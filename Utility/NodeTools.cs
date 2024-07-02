@@ -47,10 +47,10 @@ namespace CrossUp.Utility
             if (FromEvent) return !posCheck || UnitBase->X != 0 || UnitBase->Y != 0;
 
             var unitBase = (AtkUnitBase*)GameGui.GetAddonByName(AddonName);
-            return unitBase != null && 
-                   unitBase->UldManager.NodeListSize > 0 && 
-                   unitBase->RootNode != null && 
-                   unitBase->RootNode->ChildNode != null && 
+            return unitBase != null &&
+                   unitBase->UldManager.NodeListSize > 0 &&
+                   unitBase->RootNode != null &&
+                   unitBase->RootNode->ChildNode != null &&
                    (!posCheck || unitBase->X != 0 || unitBase->Y != 0);
         }
 
@@ -155,6 +155,7 @@ namespace CrossUp.Utility
 
         public AtkNineGridNode* NineGrid => Node->GetAsAtkNineGridNode();
         public AtkUldPart* NGParts => NineGrid->PartsList->Parts;
+        public AtkDragDropInterface* DragDrop => (AtkDragDropInterface*)Node->GetAsAtkComponentNode();
 
         public static implicit operator AtkResNode*(NodeWrapper wrap) => wrap.Node;
         public static implicit operator NodeWrapper(AtkResNode* node) => new(node);
@@ -190,7 +191,7 @@ namespace CrossUp.Utility
                     if (Node == null) return Warning($"Node is null and has no children \n{new StackTrace()}");
 
                     if ((comp = Node->GetAsAtkComponentNode()) == null || (uld = comp->Component->UldManager).NodeListSize < i) return Warning($"No Child node found for NodeWrapper at index {i}\n{new StackTrace()}");
-               
+
                     return uld.NodeList[i];
                 }
                 catch (Exception)
@@ -232,7 +233,7 @@ namespace CrossUp.Utility
                 if (show) Node->NodeFlags |= NodeFlags.Visible;
                 else Node->NodeFlags &= ~NodeFlags.Visible;
 
-                Node->DrawFlags |= 0xD;
+                EnableDrawFlags();
             }
 
             return this;
@@ -255,7 +256,7 @@ namespace CrossUp.Utility
             {
                 Node->ScaleX = scale;
                 Node->ScaleY = scale;
-                Node->DrawFlags |= 0xD;
+                EnableDrawFlags();
             }
 
             return this;
@@ -296,7 +297,7 @@ namespace CrossUp.Utility
                 Node->Color.R = (byte)(color.X * 255f);
                 Node->Color.G = (byte)(color.Y * 255f);
                 Node->Color.B = (byte)(color.Z * 255f);
-                Node->DrawFlags |= 0xD;
+                EnableDrawFlags();
             }
 
             return this;
@@ -309,7 +310,7 @@ namespace CrossUp.Utility
                 Node->MultiplyRed = (byte)(color.X * 255f);
                 Node->MultiplyGreen = (byte)(color.Y * 255f);
                 Node->MultiplyBlue = (byte)(color.Z * 255f);
-                Node->DrawFlags |= 0xD;
+                EnableDrawFlags();
             }
 
             return this;
@@ -320,7 +321,7 @@ namespace CrossUp.Utility
             if (Node != null)
             {
                 Node->Color.A = a;
-                Node->DrawFlags |= 0xD;
+                EnableDrawFlags();
             }
 
             return this;
@@ -356,7 +357,7 @@ namespace CrossUp.Utility
             {
                 Node->OriginX = x;
                 Node->OriginY = y;
-                Node->DrawFlags |= 0xD;
+                EnableDrawFlags();
             }
 
             return this;
@@ -402,7 +403,8 @@ namespace CrossUp.Utility
                 tnode->TextColor.R = (byte)(color.X * 255f);
                 tnode->TextColor.G = (byte)(color.Y * 255f);
                 tnode->TextColor.B = (byte)(color.Z * 255f);
-                Node->DrawFlags |= 0xD;
+
+                EnableDrawFlags();
             }
 
             return this;
@@ -422,10 +424,16 @@ namespace CrossUp.Utility
                 if (props.Alpha != null) SetAlpha((byte)props.Alpha);
                 if (props.Origin != null) SetOrigin((Vector2)props.Origin);
 
-                Node->DrawFlags |= 0xD;
+                EnableDrawFlags();
             }
 
             return this;
+        }
+
+        public void EnableDrawFlags()
+        {
+            Node->DrawFlags |= 0x5;
+            Node->DrawFlags |= 0x800000;
         }
     }
 }

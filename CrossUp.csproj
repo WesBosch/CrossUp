@@ -13,7 +13,7 @@
     <TargetFramework>net8.0</TargetFramework>
     <Platforms>x64</Platforms>
     <Nullable>enable</Nullable>
-    <LangVersion>latest</LangVersion>
+    <LangVersion>preview</LangVersion>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <ProduceReferenceAssembly>false</ProduceReferenceAssembly>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
@@ -30,12 +30,6 @@
     <None Remove="UI\Localization\dePlaceholders.json" />
     <None Remove="UI\Localization\frPlaceholders.json" />
     <None Remove="UI\Localization\jaPlaceholders.json" />
-  </ItemGroup>
-
-	<ItemGroup>
-    <Content Include="Data\CrossUp.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
   </ItemGroup>
 
   <PropertyGroup>

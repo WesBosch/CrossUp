@@ -4,13 +4,15 @@ using Dalamud.Interface.Utility;
 using FFXIVClientStructs.FFXIV.Common.Math;
 using FFXIVClientStructs.FFXIV.Component.GUI;
 using System;
+using FFXIVClientStructs.FFXIV.Client.UI;
 using static CrossUp.CrossUp;
 using static CrossUp.Utility.Service;
+// ReSharper disable RedundantEnumCaseLabelForDefaultSection
 
 namespace CrossUp.Features.Layout
 {
     /// <summary>Methods for rearranging the main Cross Hotbar</summary>
-    internal static class Cross
+    internal static class CrossLayout
     {
         /// <summary>Arranges all elements of the main Cross Hotbar based on current selection status and other factors</summary>
         public static void Arrange(ActionCrossSelect select, ActionCrossSelect previous, float scale, int split, bool mixBar, bool arrangeEx, (int, int, int, int) coords, bool forceArrange, bool resetAll)
@@ -161,7 +163,7 @@ namespace CrossUp.Features.Layout
             Bars.Cross.Padlock[2u].SetVis(!Profile.HidePadlock);
             Bars.Cross.SetDisplay.SetVis(!Profile.HideSetText)
                                  .SetRelativePos(Profile.SetTextOffset.X + split, Profile.SetTextOffset.Y);
-            Bars.Cross.ChangeSetDisplay.Container.SetRelativePos(Profile.ChangeSetOffset.X + split, Profile.ChangeSetOffset.Y);
+            Bars.Cross.ChangeSetDisplay.ChangeSetContainer.SetRelativePos(Profile.ChangeSetOffset.X + split, Profile.ChangeSetOffset.Y);
             Bars.Cross.LTtext.SetScale(Profile.HideTriggerText ? 0F : 1F);
             Bars.Cross.RTtext.SetScale(Profile.HideTriggerText ? 0F : 1F);
 
@@ -346,7 +348,7 @@ namespace CrossUp.Features.Layout
             Bars.Cross.Padlock.SetRelativePos();
             Bars.Cross.Padlock[2u].SetVis(true);
             Bars.Cross.SetDisplay.SetVis(true).SetRelativePos();
-            Bars.Cross.ChangeSetDisplay.Container.SetRelativePos();
+            Bars.Cross.ChangeSetDisplay.ChangeSetContainer.SetRelativePos();
             Bars.Cross.LTtext.SetScale();
             Bars.Cross.RTtext.SetScale();
             Bars.Cross.MiniSelectL.SetSize();

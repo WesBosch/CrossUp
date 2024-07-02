@@ -2,17 +2,17 @@
 using System.Numerics;
 using CrossUp.Utility;
 using FFXIVClientStructs.FFXIV.Client.UI;
-using static CrossUp.CrossUp;
 using static CrossUp.Game.Hotbar.Actions;
+using static CrossUp.CrossUp;
 using static CrossUp.Utility.Service;
 
 namespace CrossUp.Game.Hotbar;
 
 /// <summary>Reference (and some default properties) for all the hotbar nodes we're working with.</summary>
-internal static unsafe class Bars
+internal static unsafe partial class Bars
 {
     /// <summary>Get fresh new pointers for all the hotbar AtkUnitBases</summary>
-    internal static bool GetBases()
+    private static bool GetBases()
     {
         try
         {
@@ -33,15 +33,26 @@ internal static unsafe class Bars
     }
 
     /// <summary>The Main Cross Hotbar</summary>
-    internal class Cross
+    internal partial class Cross
     {
         public static BaseWrapper Base = new("_ActionCross");
         private static AddonActionBarBase* AddonBase => (AddonActionBarBase*)Base.UnitBase;
         public static AddonActionCross* AddonCross => (AddonActionCross*)Base.UnitBase;
         public static bool Exists => Base.Exists();
         internal static bool Enabled => LastEnabledState = GameConfig.Cross.Enabled;
+        private static bool EnabledEx => LastEnabledStateEx = GameConfig.Cross.EnabledEx;
         private static bool LastEnabledState = true;
-        internal static bool EnableStateChanged => LastEnabledState != Enabled;
+        private static bool LastEnabledStateEx = true;
+
+        private static bool EnableStateChanged
+        {
+            get
+            {
+                bool check1 = LastEnabledState != Enabled;
+                bool check2 = LastEnabledStateEx != EnabledEx;
+                return check1 || check2;
+            }
+        }
 
         /// <summary>The selection state of the Cross Hotbar</summary>
         internal static class Selection
@@ -52,8 +63,10 @@ internal static unsafe class Bars
             internal static void Check()
             {
                 var selected = AddonCross->Selected;
+                if (selected == ActionCrossSelect.DoubleCrossLeft)
+                {
+                    selected = ActionCrossSelect.None;}
                 if (selected == Current) return;
-                Log.Verbose(Current+"->"+selected);
                 Previous = Current;
                 Current = selected;
             }
@@ -76,7 +89,7 @@ internal static unsafe class Bars
 
         internal static class ChangeSetDisplay
         {
-            internal static NodeWrapper Container => new(Base[2u], pos: new(146, 0));
+            internal static NodeWrapper ChangeSetContainer => new(Base[2u], pos: new(146, 0));
 
             internal static IEnumerable<NodeWrapper> Nums => new[]
             {
@@ -93,7 +106,7 @@ internal static unsafe class Bars
             internal static NodeWrapper Text => Base[3u];
         }
 
-        internal static Action[] Actions => GetByBarID(AddonCross->PetBar ? 19 : SetID.Current, 16);
+        internal static Action[] Actions => GetByBarID(AddonCross->DisplayPetBarCross ? 19 : SetID.Current, 16);
 
         public static class SetID
         {
@@ -112,12 +125,11 @@ internal static unsafe class Bars
 
     internal class WXHB
     {
-        internal static bool Exists => LL.Exists && RR.Exists;
+        internal static bool Exists => LL.Base.Exists() && RR.Base.Exists();
 
         internal class LL
         {
             internal static BaseWrapper Base = new("_ActionDoubleCrossL");
-            internal static bool Exists => Base.Exists();
             internal static NodeWrapper SelectBG => new(Base[8u], size: new(304, 140));
             internal static NodeWrapper MiniSelect => new(Base[7u], size: new(166, 140));
         }
@@ -125,7 +137,6 @@ internal static unsafe class Bars
         internal class RR
         {
             internal static BaseWrapper Base = new("_ActionDoubleCrossR");
-            internal static bool Exists => Base.Exists();
             internal static NodeWrapper SelectBG => new(Base[8u], size: new(304, 140));
             internal static NodeWrapper MiniSelect => new(Base[7u], size: new(166, 140));
         }
@@ -176,7 +187,7 @@ internal static unsafe class Bars
     internal static readonly ActionBar[] ActionBars = { new(0), new(1), new(2), new(3), new(4), new(5), new(6), new(7), new(8), new(9) };
 
     /// <summary>A Mouse/KB hotbar</summary>
-    internal sealed class ActionBar
+    internal sealed partial class ActionBar
     {
         internal ActionBar(int barID)
         {
@@ -267,9 +278,8 @@ internal static unsafe class Bars
     internal static readonly bool[] WasHidden = new bool[10];
 
     /// <summary>The Main Menu</summary>
-    internal class MainMenu
+    internal partial class MainMenu
     {
         public static BaseWrapper Base = new("_MainCross");
-        public static bool Exists => Base.Exists(false);
     }
 }
